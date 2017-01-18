@@ -1,0 +1,33 @@
+server:
+  port: 15100
+
+spring:
+  profiles:
+    active: development
+
+spring:
+  profiles: development
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://gitlab.gaoxiaobang.com/zygj/huike-eaas-config.git
+          username: xzli
+          password: kkb-lixzh1986
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+eureka:
+  instance:
+    hostname: configserver
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery:15200/eureka/
